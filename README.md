@@ -25,6 +25,17 @@ This is online chat application with Angular, ASP.NET Core, SignalR and SqlServe
 4. Install the latest [Node.js LTS](https://nodejs.org/en/)
 5. Run `npm install -g @angular/cli` to install latest version of angular CLI
 
+## Run Back-End Application (.NET Web API)
+1. First of all, run the database migrations in Nuget Package Manager Console in Visual Studio by 'Update-Database' command or if you use .NET Core CLI, then run 'dotnet ef database update'.
+2. Build the project and run in Visual Studio. If in .NET Core CLI run 'dotnet build' and then 'dotnet run'.
+
+1. Navigate to the workspace folder, such as `simple-chat-ui`.
+2. Open terminal window
+3. Run `npm install` to install all dependencies used in application.
+4. Run `yarn install` if there any problem with npm install.(you can download and install yarn from here (https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable)
+5. Run `npm start` to run chat application in browser.
+6. Browse `http://localhost:4500` to view chat app in browser
+
 ## Run Front-End Application (Angular 9)
 
 1. Navigate to the workspace folder, such as `simple-chat-ui`.
