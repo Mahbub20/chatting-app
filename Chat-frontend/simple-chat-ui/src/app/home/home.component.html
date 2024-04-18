@@ -24,12 +24,7 @@
                             </div>
                         </li>
                     </ul>
-                    <!-- <div class="input-group">
-                        <input type="text" placeholder="Search..." name="" class="form-control search">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
-                        </div>
-                    </div> -->
+
                 </div>
                 <div class="card-body contacts_body">
                     <ul class="contacts">
@@ -44,7 +39,7 @@
 
                                 </div>
 
-                                <div class="ml-auto">
+                                <div *ngIf="item.userChatHistoryEnabled" class="ml-auto">
                                     <i class="fas fa-trash-alt" (click)="confirmDeleteUserChatHistory(item, $event)"></i>
                                 </div>
                                 
@@ -53,7 +48,7 @@
 
                     </ul>
                 </div>
-                <!-- <div class="card-footer"></div> -->
+
             </div>
         </div>
         <div class="col-md-8 col-xl-6 chat">
@@ -84,7 +79,7 @@
                                 </div>
                                 <div class="msg_cotainer">
                                     {{m.content}}
-                                    <span class="msg_time">{{timeString}}</span>
+                                    <span class="msg_time">{{m.timeString}}</span>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +108,7 @@
                 <div class="card-footer">
                     <div class="input-group">
                         <div class="input-group-append">
-                            <!-- <span><i class="fas fa-paperclip"></i></span> -->
+
                         </div>
                         <textarea name="" [(ngModel)]="message" class="form-control type_msg" placeholder="Type your message..."></textarea>
                         <div class="input-group-append" (click)="SendDirectMessage()">

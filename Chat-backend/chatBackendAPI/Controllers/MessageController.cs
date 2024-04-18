@@ -23,8 +23,8 @@ namespace chatBackendAPI.Controllers
             var messages = this.messageService.GetAll();
             return Ok(messages);
         }
-        
-        
+
+
         [HttpGet("received-messages/{userId}")]
         public IActionResult GetUserReceivedMessages(string userId)
         {
@@ -32,9 +32,9 @@ namespace chatBackendAPI.Controllers
             return Ok(messages);
         }
         [HttpPost()]
-        public async Task<IActionResult> DeleteMessage([FromBody]MessageDeleteModel messageDeleteModel)
+        public async Task<IActionResult> DeleteMessage([FromBody] MessageDeleteModel messageDeleteModel)
         {
-            var message=await this.messageService.DeleteMessage(messageDeleteModel);
+            var message = await this.messageService.DeleteMessage(messageDeleteModel);
             return Ok(message);
         }
 
@@ -43,6 +43,13 @@ namespace chatBackendAPI.Controllers
         {
             this.messageService.DeleteUserChatHistory(userId);
             return Ok();
+        }
+
+        [HttpGet("get-numberof-messages/{userId}")]
+        public int GetUserNumberOfMessages(string userId)
+        {
+            var numberOfMsg = this.messageService.GetUserNumberOfMessages(userId);
+            return numberOfMsg;
         }
     }
 }

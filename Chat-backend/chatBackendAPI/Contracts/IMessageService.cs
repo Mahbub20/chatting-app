@@ -14,5 +14,6 @@ namespace chatBackendAPI.Contracts
 
         IEnumerable<Message> GetAll();
         IEnumerable<Message> GetReceivedMessages(string userId);
+        public int GetUserNumberOfMessages(string userId);
     }
 }

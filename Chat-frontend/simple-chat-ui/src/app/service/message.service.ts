@@ -20,4 +20,8 @@ import { environment } from "src/environments/environment";
       deleteUserChatHistory(userId: string){
         return this.http.post(this.BaseURI + `/message/deleteChatHistory/${userId}`,{});
       }
+
+      getUserNumberOfMessages(userId: string){
+        return this.http.get(this.BaseURI + `/message/get-numberof-messages/${userId}`);
+      }
   }

@@ -7,6 +7,7 @@ import { MessageService } from '../service/message.service';
 import { Guid } from 'guid-typescript';
 import { ToastrService } from 'ngx-toastr';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
 
 
   loggedInUser = JSON.parse(localStorage.getItem("login-user"))
-  users:any;
+  //users:any;
   chatUser:any;
 
   messages: any[] = [];
@@ -25,6 +26,10 @@ export class HomeComponent implements OnInit {
   message: string
   hubConnection: HubConnection;
   timeString: string;
+  historyIconDisabled = true;
+
+  users: User[] = [
+  ];
 
  
   connectedUsers: any[] = []
@@ -32,6 +37,7 @@ export class HomeComponent implements OnInit {
               private toastr: ToastrService) { }
 
   ngOnInit() {
+
      this.messageService.getUserReceivedMessages().subscribe((item:any)=>{
       debugger;
        if(item){
@@ -111,13 +117,13 @@ export class HomeComponent implements OnInit {
       user['isActive'] = true;
       this.displayMessages = this.messages.filter(x => (x.type === 'sent' && x.receiver === this.chatUser.id) || (x.type === 'recieved' && x.sender === this.chatUser.id));
     })
+
   }
 
   SendDirectMessage() {
+    debugger;
     if (this.message != '' && this.message.trim() != '') {
       let guid=Guid.create();
-      const currDateTime = new Date();
-      this.formatMessageDate(currDateTime);
       var msg = {
         id:guid.toString(),
         sender: this.loggedInUser.id,
@@ -170,6 +176,20 @@ export class HomeComponent implements OnInit {
     user['isActive'] = true;
     this.chatUser = user;
     this.displayMessages = this.messages.filter(x => (x.type === 'sent' && x.receiver === this.chatUser.id) || (x.type === 'recieved' && x.sender === this.chatUser.id));
+
+    this.displayMessages.forEach(msg => {
+      const date = new Date(msg.messageDate);
+      msg.timeString = this.formatMessageDate(date);
+    });
+
+    this.messageService.getUserNumberOfMessages(user.id).subscribe(data=>{
+      if(data == 0){
+        user.userChatHistoryEnabled = false;
+      }
+      else{
+        user.userChatHistoryEnabled = true;
+      }
+    })
   }
 
   makeItOnline() {

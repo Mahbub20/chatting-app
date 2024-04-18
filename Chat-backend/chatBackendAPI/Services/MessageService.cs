@@ -57,6 +57,21 @@ namespace chatBackendAPI.Services
             }
         }
 
+        public int GetUserNumberOfMessages(string userId)
+        {
+            try
+            {
+                var messageRepo = this.unitOfWork.Repository<Message>();
+                var messageCount = messageRepo.Get().Where(x => x.Sender == userId || x.Receiver == userId).Count();
+                return messageCount;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
 
         IEnumerable<Message> IMessageService.GetAll()
         {
