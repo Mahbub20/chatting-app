@@ -1,5 +1,5 @@
 # Chatting Application
-This is online chat application with Angular, ASP.NET Core, SignalR and SqlServer. It has the following functionalities </br> 
+This is an online chat application with Angular, ASP.NET Core, SignalR and SqlServer. It has the following functionalities </br> 
  * As a new user one can resgister with his/her email address, first name and last name </br>
  * Registered user can login with his/her email address. </br>
  * LoggedIn user has dashboard and from where he can see list users and he can chat with any one from the list. Chat always happen between two users. </br>
