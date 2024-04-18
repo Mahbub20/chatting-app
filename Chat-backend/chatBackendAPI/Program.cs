@@ -50,7 +50,7 @@ var configuration = new ConfigurationBuilder()
 
 services.AddScoped<IUnitOfWork, UnitOfWork>();
 services.AddScoped<IMessageService, MessageService>();
-services.AddScoped<IMessageServiceQuery, MessageServiceQuery>();
+//services.AddScoped<IMessageServiceQuery, MessageServiceQuery>();
 
 services.Configure<ApplicationSettings>(configuration.GetSection("ApplicationSettings"));
 services.AddDbContext<ChatDbContext>(options =>

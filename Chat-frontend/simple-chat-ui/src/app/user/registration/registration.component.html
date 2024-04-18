@@ -1,23 +1,37 @@
-<form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="text-center text-dark mt-5">Chat App</h2>
+      <div class="text-center mb-5 text-dark">Please complete your registration here</div>
+      <div class="card my-5">
 
-  <div class="form-group">
-    <label>Email</label>
-    <input class="form-control" formControlName="Email">
-    <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid
-      email address.</label>
-  </div>
-  <div class="form-group">
-    <label>First Name</label>
-    <input class="form-control" formControlName="FirstName">
-  </div>
-  <div class="form-group">
-    <label>Last Name</label>
-    <input class="form-control" formControlName="LastName">
-  </div>
+        <form class="card-body cardbody-color p-lg-5" [formGroup]="service.formModel" (submit)="onSubmit()">
 
-  <div class="form-row">
-    <div class="form-group col-md-8 offset-md-2">
-      <button type="submit" class="btn btn-primary btn-round btn-block" [disabled]="!service.formModel.valid">Sign Up</button>
+          <div class="text-center">
+            <img src="/assets/img/chatPic.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+              width="200px" alt="profile">
+          </div>
+
+          <div class="mb-3">
+            <input type="email" class="form-control" formControlName="Email"
+              placeholder="Email address">
+          </div>
+
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="FirstName"
+              placeholder="First Name">
+          </div>
+
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="LastName"
+              placeholder="Last Name">
+          </div>
+          <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Register</button></div>
+          <div id="emailHelp" class="form-text text-center mb-5 text-dark">Already have an account? <a routerLink="/login" class="text-dark fw-bold">Login</a>
+          </div>
+        </form>
+      </div>
+
     </div>
   </div>
-</form>
+</div>

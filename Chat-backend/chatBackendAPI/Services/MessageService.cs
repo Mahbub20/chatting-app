@@ -21,12 +21,12 @@ namespace chatBackendAPI.Services
             this.unitOfWork.Repository<Message>().Add(message);
             this.unitOfWork.SaveChanges();
         }
-       async Task<Message> IMessageService.DeleteMessage(MessageDeleteModel messageDeleteModel)
+        async Task<Message> IMessageService.DeleteMessage(MessageDeleteModel messageDeleteModel)
         {
-           // var message = messageDeleteModel.Message;
+            // var message = messageDeleteModel.Message;
             var messageRepo = this.unitOfWork.Repository<Message>();
-            var message =await messageRepo.Get().Where(x => x.Id == messageDeleteModel.Message.Id).FirstOrDefaultAsync();
-            if(messageDeleteModel.DeleteType== DeleteTypeEnum.DeleteForEveryone.ToString())
+            var message = await messageRepo.Get().Where(x => x.Id == messageDeleteModel.Message.Id).FirstOrDefaultAsync();
+            if (messageDeleteModel.DeleteType == DeleteTypeEnum.DeleteForEveryone.ToString())
             {
                 message.IsReceiverDeleted = true;
                 message.IsSenderDeleted = true;
@@ -45,16 +45,46 @@ namespace chatBackendAPI.Services
         {
             try
             {
-            var messageRepo = this.unitOfWork.Repository<Message>();
-            var chatMessages = messageRepo.Get().Where(x => x.Sender == userId || x.Receiver == userId).ToList();
-            messageRepo.DeleteRange(chatMessages);
-            this.unitOfWork.SaveChanges();
+                var messageRepo = this.unitOfWork.Repository<Message>();
+                var chatMessages = messageRepo.Get().Where(x => x.Sender == userId || x.Receiver == userId).ToList();
+                messageRepo.DeleteRange(chatMessages);
+                this.unitOfWork.SaveChanges();
             }
             catch (System.Exception)
             {
-                
+
                 throw;
             }
+        }
+
+
+        IEnumerable<Message> IMessageService.GetAll()
+        {
+            try
+            {
+                var messages = this.unitOfWork.Repository<Message>().Get().ToList();
+                return messages;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        IEnumerable<Message> IMessageService.GetReceivedMessages(string userId)
+        {
+            try
+            {
+                var messages = this.unitOfWork.Repository<Message>().Get().Where(x => x.Receiver == userId).ToList();
+                return messages;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

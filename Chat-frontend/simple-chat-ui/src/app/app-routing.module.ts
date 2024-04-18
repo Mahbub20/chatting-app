@@ -8,14 +8,17 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/user/login',pathMatch:'full'},
-  {
-    path: 'user', component: UserComponent,
-    children: [
-      { path: 'registration', component: RegistrationComponent },
-      { path: 'login', component: LoginComponent }
-    ]
-  },
+  // {path:'',redirectTo:'/user/login',pathMatch:'full'},
+  // {
+  //   path: 'user', component: UserComponent,
+  //   children: [
+  //     { path: 'registration', component: RegistrationComponent },
+  //     { path: 'login', component: LoginComponent }
+  //   ]
+  // },
+  {path:'', redirectTo:'/login', pathMatch:'full'},
+  {path:'login', component:LoginComponent},
+  {path:'registration', component:RegistrationComponent},
   {path:'home',component:HomeComponent,canActivate:[AuthGuard]},
   {path:'forbidden',component:ForbiddenComponent},
 ];

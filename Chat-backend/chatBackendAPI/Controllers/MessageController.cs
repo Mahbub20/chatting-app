@@ -12,17 +12,15 @@ namespace chatBackendAPI.Controllers
     [Route("api/[controller]")]
     public class MessageController : ControllerBase
     {
-        private readonly IMessageServiceQuery messageServiceQuery;
         private readonly IMessageService messageService;
-        public MessageController(IMessageServiceQuery messageServiceQuery,IMessageService messageService)
+        public MessageController(IMessageService messageService)
         {
-            this.messageServiceQuery = messageServiceQuery;
             this.messageService = messageService;
         }
         [HttpGet]
         public IActionResult GetAll()
         {
-            var messages = this.messageServiceQuery.GetAll();
+            var messages = this.messageService.GetAll();
             return Ok(messages);
         }
         
@@ -30,7 +28,7 @@ namespace chatBackendAPI.Controllers
         [HttpGet("received-messages/{userId}")]
         public IActionResult GetUserReceivedMessages(string userId)
         {
-            var messages = this.messageServiceQuery.GetReceivedMessages(userId);
+            var messages = this.messageService.GetReceivedMessages(userId);
             return Ok(messages);
         }
         [HttpPost()]

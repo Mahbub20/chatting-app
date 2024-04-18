@@ -11,5 +11,8 @@ namespace chatBackendAPI.Contracts
         void Add(Message message);
         Task<Message> DeleteMessage(MessageDeleteModel messageDeleteModel);
         void DeleteUserChatHistory(string userId);
+
+        IEnumerable<Message> GetAll();
+        IEnumerable<Message> GetReceivedMessages(string userId);
     }
 }
