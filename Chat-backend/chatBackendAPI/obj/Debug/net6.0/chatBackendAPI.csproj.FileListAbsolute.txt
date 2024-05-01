@@ -76,7 +76,6 @@
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/bin/Debug/net6.0/chatBackendAPI.deps.json
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/bin/Debug/net6.0/chatBackendAPI.runtimeconfig.json
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/bin/Debug/net6.0/chatBackendAPI.dll
-/home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/bin/Debug/net6.0/ref/chatBackendAPI.dll
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/bin/Debug/net6.0/chatBackendAPI.pdb
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/bin/Debug/net6.0/Humanizer.dll
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
@@ -137,8 +136,9 @@
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/staticwebassets.build.json
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/staticwebassets.development.json
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/scopedcss/bundle/chatBackendAPI.styles.css
-/home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/chatBackendAPI.csproj.CopyComplete
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/chatBackendAPI.dll
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/ref/chatBackendAPI.dll
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/chatBackendAPI.pdb
 /home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/chatBackendAPI.genruntimeconfig.cache
+/home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/refint/chatBackendAPI.dll
+/home/mahbub/Documents/Workspace/Projects/ChattingApp/Chat-backend/chatBackendAPI/obj/Debug/net6.0/chatBackendAPI.csproj.CopyComplete
